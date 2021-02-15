@@ -10,12 +10,14 @@ class Main extends BaseController
 	{
 
 		$dados = [
-			'nome' => 'Lucas meyble',
-			'idade' => 19
+			'audi',
+			'mercedes',
+			'ferrari',
+			'maclaren'
 		];
 
 		echo view('templates/header');
-		echo view('pagina', $dados);
+		echo view('pagina', [ 'dados' => $dados ]);
 		echo view('templates/footer');
 
 	}
