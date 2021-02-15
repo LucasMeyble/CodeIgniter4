@@ -10,10 +10,20 @@ class Main extends BaseController
 	{
 
 		$dados = [
-			'audi',
-			'mercedes',
-			'ferrari',
-			'maclaren'
+			[
+				'nome' => 'lucas',
+				'email' => 'lucas_meyble@hotmail.com	'
+			], 
+
+			[
+				'nome' => 'pedro',
+				'email' => 'pedro@hotmail.com	'
+			],
+
+			[
+				'nome' => 'joao',
+				'email' => 'joao@hotmail.com	'
+			]
 		];
 
 		echo view('templates/header');

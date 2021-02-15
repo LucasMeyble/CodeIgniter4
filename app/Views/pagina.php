@@ -1,5 +1,9 @@
-<?php foreach ($dados as $dado):?>
-  <?php if($dado == 'audi'): ?>
-    <li><?= $dado ?></li>
-  <?php endif; ?>
-<?php endforeach;?>
+<div>
+
+  <?php foreach ($dados as $dado):?>
+    
+      <?= view_cell('\App\Libraries\Componentes::cliente', ['cliente'=>$dado]); ?>
+    
+  <?php endforeach;?> 
+
+</div>
