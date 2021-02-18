@@ -12,7 +12,14 @@ class Main extends BaseController
 		$parser = \Config\Services::parser();
 
 		$data = [
-			'frase' => 'essa frase aqui'
+			'frase' => 'essa frase aqui',
+			'nomes' => [
+				['nome' => 'lucas'],
+				['nome' => 'pedro'],
+				['nome' => 'joao']
+			],
+			'admin' => true,
+			'texto ' => 'texto'
 		];
 
 		echo $parser->setData($data)->render('parce');
