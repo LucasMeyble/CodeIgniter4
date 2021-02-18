@@ -8,9 +8,14 @@ class Main extends BaseController
 {
 	public function index()
 	{
-		echo view('templates/header');
-		echo view('seccao');
-		echo view('templates/footer');
+		
+		$parser = \Config\Services::parser();
+
+		$data = [
+			'frase' => 'essa frase aqui'
+		];
+
+		echo $parser->setData($data)->render('parce');
 
 	}
 }
