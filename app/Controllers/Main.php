@@ -8,21 +8,28 @@ class Main extends BaseController
 {
 	public function index()
 	{
-		
-		$parser = \Config\Services::parser();
+		$table = new \CodeIgniter\View\Table();
+
+		$template = [
+			'table_open'         => '<table class="table table-striped">',
+			'thead_open'         => '<thead class="thead-dark">',
+			'thead_close'        => '</thead>',
+];
+
+$table->setTemplate($template);
 
 		$data = [
-			'frase' => 'essa frase aqui',
-			'nomes' => [
-				['nome' => 'lucas'],
-				['nome' => 'pedro'],
-				['nome' => 'joao']
-			],
-			'admin' => true,
-			'texto ' => 'texto'
+			['Name', 'Color', 'Size'],
+			['Fred', 'Blue',  'Small'],
+			['Mary', 'Red',   'Large'],
+			['John', 'Green', 'Medium'],
+			['luquinhas', 'felipp', 'rafa']
 		];
 
-		echo $parser->setData($data)->render('parce');
+
+		echo view('templates/header');
+		echo view('table', ['table' => $table->generate($data)]);
+		echo view('templates/footer');
 
 	}
 }
