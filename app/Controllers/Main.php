@@ -11,8 +11,8 @@ class Main extends BaseController
 		$table = new \CodeIgniter\View\Table();
 
 		$template = [
-			'table_open'         => '<table class="table table-striped">',
-			'thead_open'         => '<thead class="thead-dark">',
+			'table_open'         => '<table class="table table-striped table-dark">',
+			'thead_open'         => '<thead class="">',
 			'thead_close'        => '</thead>',
 ];
 
