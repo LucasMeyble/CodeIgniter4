@@ -6,23 +6,19 @@ use CodeIgniter\Controller;
 
 class Main extends BaseController
 {
-	public function index(){
-		$db = \Config\Database::connect();
-		                                                  //getResultArray
-		$results = $db->query("SELECT * FROM cliente_tbl");
+	public function index($id, $nome){
+		
+		$params = [
+			'id' => $id,
+			'nome' => $nome
+		];
+		$db = db_connect();
+		$dados = $db->query("SELECT * FROM cliente_tbl where id = :id: and nome = :nome:", $params)->getResultObject();
 		$db->close();
 
-		//oq quero mostrar com isso é que podemos obter o mesmo resultado de vavrias formas, vai de cada um escoher 
-		//o metodo a ser ultilizado
-		foreach ($results->getResult() as $row){
-			echo '<p>'. $row->nome . ' - '. $row->email .'</p>';
-		}
+		echo '<pre>';
+		echo print_r($dados);
 
-		foreach ($results->getResult('array') as $row){
-			echo '<p>'. $row['nome'] . ' - '. $row['email'] .'</p>';
-		}
-
-	
 }
 }
 ?>
