@@ -6,19 +6,28 @@ use CodeIgniter\Controller;
 
 class Main extends BaseController
 {
-	public function index($id, $nome){
-		
+		public function index(){
+			echo view('templates/header');
+			echo view('formulario');
+			echo view('templates/footer');
+	}
+
+	public function save(){
+
 		$params = [
-			'id' => $id,
-			'nome' => $nome
+			'nome' => $this->request->getPost('nome'),
+			'email' => $this->request->getPost('email')
 		];
+
 		$db = db_connect();
-		$dados = $db->query("SELECT * FROM cliente_tbl where id = :id: and nome = :nome:", $params)->getResultObject();
+		//coloca 0 no id quando o campo é auto increment la na tabela
+		$db->query("INSERT INTO cliente_tbl VALUES(
+			0,
+			:nome:,
+			:email:
+		)", $params);
 		$db->close();
 
-		echo '<pre>';
-		echo print_r($dados);
-
-}
+	}
 }
 ?>
